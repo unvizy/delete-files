@@ -17,12 +17,12 @@ const execCommand = async (command) => {
 
 const del = async () => {
     try {
-        const totalFile = await execCommand(`ls -1t ${dir}/* | wc -l`);
+        const totalFile = await execCommand(`ls -1t ${dir} | wc -l`);
         const totalDeleteFiles = totalFile - keepFile;
         if (totalFile <= keepFile) {
             return false;
         }
-        const deletedFiles = await execCommand(`ls -t ${dir}/* | tail -n ${totalDeleteFiles}`);
+        const deletedFiles = await execCommand(`ls -t ${dir} | tail -n ${totalDeleteFiles}`);
         for (let file of deletedFiles.split('\n')) {
             unlink(`${file}`, (err) => {
                 if (err) throw err;
