@@ -2,7 +2,7 @@ import { unlink } from 'node:fs';
 import { exec, spawn } from 'child_process'
 
 let dir = process.argv[2];
-const keepFile = 1000;
+const keepFile = 2000;
 
 const execCommand = async (command) => {
     return new Promise((resolve, reject) => {
