@@ -24,7 +24,7 @@ const del = async () => {
         }
         const deletedFiles = await execCommand(`ls -t ${dir} | tail -n ${totalDeleteFiles}`);
         for (let file of deletedFiles.split('\n')) {
-            unlink(`${file}`, (err) => {
+            unlink(`${dir}/${file}`, (err) => {
                 if (err) throw err;
             });
         }
